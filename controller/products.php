@@ -14,6 +14,7 @@ class Product  extends DbConfig implements Prod{
 
     public function getData($query){
         $id='';
+        $query="select * from product_list".($id ? "where id=$id":'');
         $result=$this->connection->query($query);
         $method=$_SERVER['REQUEST_METHOD'];
         if($result == false){
@@ -36,7 +37,32 @@ class Product  extends DbConfig implements Prod{
         }
     }
 
-    
+    public function manageData(){
+        if($_SERVER['REQUEST_METHOD']=='POST'){
+            $id=$_GET['id'];
+            $sku=$_POST['sku'];
+            $prodName=$_POST['prodName'];
+            $price=$_POST['price'];
+            $switcher=$_POST['switcher'];
+            $size=$_POST['size'];
+            $length=$_POST['length'];
+            $height=$_POST['height'];
+            $width=$_POST['width'];
+            $weight=$_POST['weight'];
+        
+            //Delete Products
+            if(isset($_GET['delete'])){
+                $delete=$_GET['delete'];
+                $result=$prod->delete($delete,'product_list');
+            }
+        
+            //Insert product
+            $sql="INSERT INTO product_list(sku,price,switcher,size,height,width,names,lengths,weights)
+                VALUES('$sku','$price','$switcher','$size','$height','$width','$prodName','$length','$weight')";
+        
+            $result=$prod->execute($sql);
+        }
+    }
     public function execute($query){
         $result = $this->connection->query($query);
         if ($result == false) {
@@ -52,7 +78,7 @@ class Product  extends DbConfig implements Prod{
         $query = "DELETE FROM $table WHERE id = $id";
         
         $result = $this->connection->query($query);
-    
+        
         if ($result == false) {
             echo 'Error: cannot delete id ' . $id . ' from table ' . $table;
             return false;

@@ -36,8 +36,8 @@ function Home() {
         }).catch(err=>console.log(err))
 
     
-
     },[values])
+    console.log(values)
   return (
     <div className='h-screen'>
         <Navbar title='Product List' btn1='ADD' btn2='MASS DELETE' action1={()=>navigate('/addProduct')} action2={handleDelete}/>
