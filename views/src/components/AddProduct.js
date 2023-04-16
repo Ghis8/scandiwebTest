@@ -25,7 +25,6 @@ function AddProduct() {
     formData.append('sku',values.sku)
     formData.append('prodName',values.prodName)
     formData.append('price',values.price)
-    formData.append('switcher',values.switcher)
     formData.append('size',values.size)
     formData.append('weight',values.weight)
     formData.append('height',values.height)
@@ -34,7 +33,7 @@ function AddProduct() {
     
     axios({
         method:'post',
-        url:'http://localhost/product1/model/',
+        url:'http://localhost/product/model/',
         // url:'https://productlist008.000webhostapp.com/',
         data: formData,
         config: { headers :{'Content-Type': 'multipart/form-data'}}

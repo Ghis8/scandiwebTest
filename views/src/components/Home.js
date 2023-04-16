@@ -15,7 +15,7 @@ function Home() {
       for(let id of ids){
         axios({
           method:'post',
-          url:'http://localhost/product1/model/?delete='+id
+          url:'http://localhost/product/model/?delete='+id
           // url:'https://productlist008.000webhostapp.com/?delete='+id
         })
         .then(res=>{
@@ -30,7 +30,7 @@ function Home() {
 
     useEffect(()=>{
         // const url="https://productlist008.000webhostapp.com/" 
-        const url='http://localhost/product1/model/'
+        const url='http://localhost/product/model/'
         axios.get(url).then(res=>{
           setValues(res.data)
         }).catch(err=>console.log(err))

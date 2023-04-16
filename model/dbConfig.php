@@ -22,8 +22,6 @@ abstract class DbConfig
         
         return $this->connection;
     }
-    abstract public function getData($query);
-    abstract public function execute($query);
-    abstract public function delete($id,$table);
+    
 }
 ?>
