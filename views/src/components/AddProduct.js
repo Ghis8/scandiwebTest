@@ -25,6 +25,7 @@ function AddProduct() {
     formData.append('sku',values.sku)
     formData.append('prodName',values.prodName)
     formData.append('price',values.price)
+    formData.append('switcher',values.switcher)
     formData.append('size',values.size)
     formData.append('weight',values.weight)
     formData.append('height',values.height)

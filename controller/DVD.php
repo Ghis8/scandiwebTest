@@ -2,6 +2,7 @@
 
 include_once '../model/dbConfig.php';
 
+
 //calling The Form
 include_once 'Form.php';
 
@@ -34,29 +35,8 @@ class DVD  extends DbConfig implements Product{
             $result=$this->execute($sql);
         }
     }
-    public function execute($query){
-        $result = $this->connection->query($query);
-        if ($result == false) {
-            echo 'Error: cannot execute the command';
-            return false;
-        } else {
-            return true;
-        }  
-    }
-
-    public function delete($id,$table){
-
-        $query = "DELETE FROM $table WHERE id = $id";
-        
-        $result = $this->connection->query($query);
-        
-        if ($result == false) {
-            echo 'Error: cannot delete id ' . $id . ' from table ' . $table;
-            return false;
-        } else {
-            return true;
-        }
-    }
+    
 }
+
 
 

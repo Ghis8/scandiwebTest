@@ -31,4 +31,23 @@ class Prod extends DbConfig{
             }
         }
     }
+    function manipulateData(){
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            if($_POST['switcher'] == 'DVD' || isset($_GET['delete'])){
+                $DVD=new DVD();
+                $DVD->manageData('DVD');
+            }
+            elseif($_POST['switcher']== 'Book' || isset($_GET['delete'])){
+                $Book=new Book();
+                $Book->manageData('Book');
+            }
+            elseif($_POST['switcher']== 'Furniture' || isset($_GET['delete'])){
+                $Furniture=new Furniture();
+                $Furniture->manageData('Furniture');
+            }
+            else{
+                echo '<script>alert("Switcher not selected!")</script>';
+            }
+        }
+    }
 }
