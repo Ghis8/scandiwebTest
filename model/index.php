@@ -12,13 +12,13 @@ include '../controller/products.php';
 
 
 
-// Create Instances
+// Create Instance
 $product=new Prod();
 
 // adding and delete Data
 $product->manipulateData();
 
-// Fetching data in the database
+// Fetching data 
 $result=$product->getData($query);
 
 
